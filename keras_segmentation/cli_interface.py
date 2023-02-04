@@ -100,12 +100,12 @@ def evaluate_model_action(command_parser):
     parser = command_parser.add_parser('evaluate_model')
     parser.add_argument("--images_path", type=str, required=True)
     parser.add_argument("--segs_path", type=str, required=True)
-    parser.add_argument("--checkpoints_path", type=str, required=True)
+    parser.add_argument("--model", type=str, required=True)
 
     def action(args):
         print(evaluate(
             inp_images_dir=args.images_path, annotations_dir=args.segs_path,
-            checkpoints_path=args.checkpoints_path))
+            model=args.model))
 
     parser.set_defaults(func=action)
 
